@@ -28,7 +28,7 @@ function _GetDefault {
         $options = (Join-Path -Path $repo -ChildPath 'options.json')
         
         if (Test-Path -Path $options ) {
-            $obj = Get-Content -Path $options | ConvertFrom-Json
+            $obj = Get-Content -Path $options -raw | ConvertFrom-Json
             if ($options -ne [string]::empty) {
                 return $obj.$Option
             } else {
